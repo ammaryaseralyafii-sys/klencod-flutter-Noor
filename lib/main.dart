@@ -21,7 +21,6 @@ class AppTheme {
       colorScheme: const ColorScheme.dark(
         primary: primaryGold,
         surface: surface,
-        background: background,
       ),
     );
   }
@@ -29,7 +28,7 @@ class AppTheme {
 
 /// 🌟 Application Root
 class NoorApp extends StatelessWidget {
-  const NoorApp({Key? key}) : super(key: key);
+  const NoorApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class NoorApp extends StatelessWidget {
 
 /// ✨ 1. Splash Screen
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({super.key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -55,6 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 2200), () {
+      if (!mounted) return;
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -126,7 +126,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
 /// 🔑 2. Role Selection & Registration Screen
 class AuthRoleScreen extends StatefulWidget {
-  const AuthRoleScreen({Key? key}) : super(key: key);
+  const AuthRoleScreen({super.key});
 
   @override
   State<AuthRoleScreen> createState() => _AuthRoleScreenState();
@@ -138,6 +138,14 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _progressController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _progressController.dispose();
+    _ageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +220,7 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
                   ),
                 ),
                 onPressed: () {
-                  if (_nameController.text.isEmpty) {
+                  if (_nameController.text.trim().isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('الرجاء إدخال الاسم الثلاثي'))
                     );
@@ -335,7 +343,7 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
 
 /// 👨‍🏫 3. Teacher Dashboard
 class TeacherDashboardScreen extends StatelessWidget {
-  const TeacherDashboardScreen({Key? key}) : super(key: key);
+  const TeacherDashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -503,7 +511,7 @@ class TeacherDashboardScreen extends StatelessWidget {
 
 /// 📖 4. Student Home Screen
 class StudentHomeScreen extends StatelessWidget {
-  const StudentHomeScreen({Key? key}) : super(key: key);
+  const StudentHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
