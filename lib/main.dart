@@ -28,7 +28,7 @@ class AppTheme {
 
 /// 🌟 Application Root
 class NoorApp extends StatelessWidget {
-  const NoorApp({super.key});
+  const NoorApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +43,7 @@ class NoorApp extends StatelessWidget {
 
 /// ✨ 1. Splash Screen
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -126,7 +126,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
 /// 🔑 2. Role Selection & Registration Screen
 class AuthRoleScreen extends StatefulWidget {
-  const AuthRoleScreen({super.key});
+  const AuthRoleScreen({Key? key}) : super(key: key);
 
   @override
   State<AuthRoleScreen> createState() => _AuthRoleScreenState();
@@ -343,7 +343,7 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
 
 /// 👨‍🏫 3. Teacher Dashboard
 class TeacherDashboardScreen extends StatelessWidget {
-  const TeacherDashboardScreen({super.key});
+  const TeacherDashboardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -511,7 +511,7 @@ class TeacherDashboardScreen extends StatelessWidget {
 
 /// 📖 4. Student Home Screen
 class StudentHomeScreen extends StatelessWidget {
-  const StudentHomeScreen({super.key});
+  const StudentHomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
