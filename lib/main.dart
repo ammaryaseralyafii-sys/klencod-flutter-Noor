@@ -6,12 +6,12 @@ void main() {
 
 /// 👑 App Theme - Dark Luxury Theme
 class AppTheme {
-  static const Color background = Color(0xFF0F141C); // خلفية داكنة فخمة
-  static const Color surface = Color(0xFF18202C);    // بطاقات
-  static const Color surfaceLight = Color(0xFF222B38); // بطاقات تفاعلية
-  static const Color primaryGold = Color(0xFFD4AF37); // ذهبي فاخر
-  static const Color textPrimary = Color(0xFFF8F9FA); // نص أبيض ناصع
-  static const Color textSecondary = Color(0xFF94A3B8); // نص فرعي هادئ
+  static const Color background = Color(0xFF0F141C);
+  static const Color surface = Color(0xFF18202C);
+  static const Color surfaceLight = Color(0xFF222B38);
+  static const Color primaryGold = Color(0xFFD4AF37);
+  static const Color textPrimary = Color(0xFFF8F9FA);
+  static const Color textSecondary = Color(0xFF94A3B8);
 
   static ThemeData get darkTheme {
     return ThemeData(
@@ -23,7 +23,6 @@ class AppTheme {
         surface: surface,
         background: background,
       ),
-      fontFamily: 'Roboto',
     );
   }
 }
@@ -43,7 +42,7 @@ class NoorApp extends StatelessWidget {
   }
 }
 
-/// ✨ 1. Splash Screen - شاشة البداية
+/// ✨ 1. Splash Screen
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -125,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-/// 🔑 2. Role Selection & Registration Screen - شاشة اختيار الصفة وإدخال البيانات
+/// 🔑 2. Role Selection & Registration Screen
 class AuthRoleScreen extends StatefulWidget {
   const AuthRoleScreen({Key? key}) : super(key: key);
 
@@ -134,7 +133,7 @@ class AuthRoleScreen extends StatefulWidget {
 }
 
 class _AuthRoleScreenState extends State<AuthRoleScreen> {
-  String selectedRole = 'student'; // 'student' or 'teacher'
+  String selectedRole = 'student';
   
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _progressController = TextEditingController();
@@ -170,7 +169,6 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
               ),
               const SizedBox(height: 24),
 
-              // اختيار الصفة (طالب / معلم)
               Row(
                 children: [
                   Expanded(
@@ -184,7 +182,6 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
               ),
               const SizedBox(height: 24),
 
-              // حقول إدخال البيانات المطلوبة
               _buildTextField(
                 controller: _nameController,
                 label: 'الاسم الثلاثي',
@@ -205,7 +202,6 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
               ),
               const SizedBox(height: 32),
 
-              // زر الدخول
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppTheme.primaryGold,
@@ -245,7 +241,6 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
               ),
               const SizedBox(height: 12),
 
-              // الدخول كزائر سريع
               TextButton(
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -338,7 +333,7 @@ class _AuthRoleScreenState extends State<AuthRoleScreen> {
   }
 }
 
-/// 👨‍🏫 3. Teacher Dashboard - لوحة المعلم (تنظيم الطلاب بدقة ومعرفة مكان وصولهم وحفظهم)
+/// 👨‍🏫 3. Teacher Dashboard
 class TeacherDashboardScreen extends StatelessWidget {
   const TeacherDashboardScreen({Key? key}) : super(key: key);
 
@@ -364,7 +359,6 @@ class TeacherDashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // إحصائيات حلقة المعلم
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -384,12 +378,11 @@ class TeacherDashboardScreen extends StatelessWidget {
             const SizedBox(height: 24),
 
             const Text(
-              'سجل الطلاب ومتابعة الحفظ (بدون لخبطة)',
+              'سجل الطلاب ومتابعة الحفظ',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.textPrimary),
             ),
             const SizedBox(height: 12),
 
-            // قائمة منظمة لكل طالب، اسمه الثلاثي، عمره، أين واصل، وكم حفظ
             Expanded(
               child: ListView(
                 children: [
@@ -508,7 +501,7 @@ class TeacherDashboardScreen extends StatelessWidget {
   }
 }
 
-/// 📖 4. Student Home Screen - واجهة الطالب الرئيسية
+/// 📖 4. Student Home Screen
 class StudentHomeScreen extends StatelessWidget {
   const StudentHomeScreen({Key? key}) : super(key: key);
 
